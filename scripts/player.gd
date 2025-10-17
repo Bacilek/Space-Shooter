@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var SPEED: int = 500
 
@@ -11,6 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 
 	var direction = Input.get_vector("left", "right", "up", "down")
-	position += direction * SPEED * delta
+	velocity = direction * SPEED
+	move_and_slide()
 	
 	
