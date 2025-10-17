@@ -1,11 +1,16 @@
 extends Node2D
 
+@export var SPEED: int = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	position = Vector2(100, 500)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = Vector2(100, 200)
+
+	var direction = Input.get_vector("left", "right", "up", "down")
+	position += direction * SPEED * delta
+	
+	
