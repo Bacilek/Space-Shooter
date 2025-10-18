@@ -39,12 +39,10 @@ texture = ExtResource("1_w7c3h")
 [node name="Player" parent="." instance=ExtResource("1_2q6dc")]
 position = Vector2(592, 487)
 
-[node name="Meteor" parent="." instance=ExtResource("3_w8frs")]
-position = Vector2(532, 132)
-
 [node name="Borders" type="Node2D" parent="."]
 
 [node name="Left" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left"]
 position = Vector2(-50, 360)
@@ -52,6 +50,7 @@ shape = SubResource("RectangleShape2D_w8frs")
 
 [node name="Right" type="StaticBody2D" parent="Borders"]
 position = Vector2(0, -2)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
 position = Vector2(1330, 362)
@@ -59,6 +58,7 @@ shape = SubResource("RectangleShape2D_w8frs")
 
 [node name="Up" type="StaticBody2D" parent="Borders"]
 position = Vector2(492, -199)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Up"]
 position = Vector2(148, 149)
@@ -66,13 +66,20 @@ shape = SubResource("RectangleShape2D_mx8sn")
 
 [node name="Down" type="StaticBody2D" parent="Borders"]
 position = Vector2(653, 725)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Down"]
 position = Vector2(-13, 45)
 shape = SubResource("RectangleShape2D_ppgk2")
 
 [node name="MeteorTimer" type="Timer" parent="."]
+wait_time = 0.25
 autostart = true
 script = SubResource("GDScript_mx8sn")
 
-[connection signal="timeout" from="MeteorTimer" to="." method="_on_timer_timeout"]
+[node name="Meteors" type="Node2D" parent="."]
+
+[node name="Meteor" parent="Meteors" instance=ExtResource("3_w8frs")]
+position = Vector2(532, 132)
+
+[connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
