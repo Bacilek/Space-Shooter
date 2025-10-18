@@ -3,10 +3,9 @@ extends Area2D
 var speed: int
 var rotation_speed: int
 var direction_x: float
+var rng := RandomNumberGenerator.new()
 
 func _ready():
-	var rng := RandomNumberGenerator.new()
-	
 	# texture
 	var path: String = "res://assets/PNG/Meteors/meteor_brown_big" + str(rng.randi_range(1,4)) + ".png"
 	$MeteorImage.texture = load(path)
@@ -26,5 +25,5 @@ func _process(delta):
 	position += Vector2(direction_x, 1.0) * speed * delta
 	rotation_degrees += rotation_speed * delta
 
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	print("wreck!")

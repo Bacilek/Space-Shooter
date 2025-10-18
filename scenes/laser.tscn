@@ -12,7 +12,8 @@ collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_a7dhc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="LaserImage" type="Sprite2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1_xmihv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
