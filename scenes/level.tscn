@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbyp1xwa5d3e1"]
+[gd_scene load_steps=16 format=3 uid="uid://cbyp1xwa5d3e1"]
 
 [ext_resource type="PackedScene" uid="uid://wps0hpecyxnr" path="res://scenes/player.tscn" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://dq113t0j3jdj3" path="res://scripts/level.gd" id="1_mx8sn"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://h5awh74k7677" path="res://scenes/laser.tscn" id="5_ppgk2"]
 [ext_resource type="Texture2D" uid="uid://dih0iobp4xbgl" path="res://assets/PNG/Effects/star2.png" id="6_b121j"]
 [ext_resource type="Texture2D" uid="uid://dh1xewsiivauk" path="res://assets/PNG/Effects/star3.png" id="7_8c41q"]
+[ext_resource type="PackedScene" uid="uid://dn1vdyt00eyk8" path="res://scenes/ui.tscn" id="9_8c41q"]
+[ext_resource type="PackedScene" uid="uid://bx13i38eaf4bv" path="res://scenes/game_over.tscn" id="10_olg7q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
 size = Vector2(100, 720)
@@ -56,11 +58,13 @@ script = ExtResource("1_mx8sn")
 position = Vector2(643, 362)
 scale = Vector2(5.2592773, 3.0126956)
 texture = ExtResource("1_w7c3h")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_2q6dc")]
 position = Vector2(592, 487)
 
 [node name="Borders" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Left" type="StaticBody2D" parent="Borders"]
 collision_layer = 4
@@ -99,16 +103,19 @@ autostart = true
 script = SubResource("GDScript_mx8sn")
 
 [node name="Meteors" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Meteor" parent="Meteors" instance=ExtResource("3_w8frs")]
 position = Vector2(532, 132)
 
 [node name="Lasers" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Laser" parent="Lasers" instance=ExtResource("5_ppgk2")]
 position = Vector2(195, 119)
 
 [node name="Stars" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Star1" type="AnimatedSprite2D" parent="Stars"]
 sprite_frames = SubResource("SpriteFrames_olg7q")
@@ -204,6 +211,10 @@ frame_progress = 0.77468914
 sprite_frames = SubResource("SpriteFrames_olg7q")
 autoplay = "default"
 frame_progress = 0.77468914
+
+[node name="UI" parent="." instance=ExtResource("9_8c41q")]
+
+[node name="GameOver" parent="." instance=ExtResource("10_olg7q")]
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
