@@ -17,9 +17,10 @@ func _process(_delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * SPEED
 	move_and_slide()
-	
+
 	# shoot input
 	if Input.is_action_just_pressed("shoot") and can_shoot:
+		print("yo")
 		laser.emit($LaserStartPos.global_position)  # emit custom signal 
 		can_shoot = false
 		$LaserTimer.start()
