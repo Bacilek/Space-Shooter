@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED: int = 500
+@export var SPEED: int = 600
 var can_shoot: bool = true
 
 signal laser(position)
@@ -20,7 +20,6 @@ func _process(_delta: float) -> void:
 
 	# shoot input
 	if Input.is_action_just_pressed("shoot") and can_shoot:
-		print("yo")
 		laser.emit($LaserStartPos.global_position)  # emit custom signal 
 		can_shoot = false
 		$LaserTimer.start()

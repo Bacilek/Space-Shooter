@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dn1vdyt00eyk8"]
 
 [ext_resource type="FontFile" uid="uid://b3putnmyk0bug" path="res://assets/audio/kenvector_future_thin.ttf" id="1_x4jx1"]
-[ext_resource type="Texture2D" uid="uid://bhfyvr3ur525a" path="res://assets/PNG/UI/playerLife1_blue.png" id="2_yev5y"]
+[ext_resource type="Script" uid="uid://3h2t8gnkj5kt" path="res://scripts/ui.gd" id="1_yev5y"]
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" groups=["ui"]]
+script = ExtResource("1_yev5y")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 5
@@ -22,7 +23,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_x4jx1")
 theme_override_font_sizes/font_size = 50
-text = "Score"
+text = "0"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchors_preset = 2
@@ -37,27 +38,7 @@ theme_override_constants/margin_left = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="LifeBlue1" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_yev5y")
-stretch_mode = 2
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
 
-[node name="LifeBlue2" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_yev5y")
-stretch_mode = 2
-
-[node name="LifeBlue3" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_yev5y")
-stretch_mode = 2
-
-[node name="LifeBlue4" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_yev5y")
-stretch_mode = 2
-
-[node name="LifeBlue5" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_yev5y")
-stretch_mode = 2
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
