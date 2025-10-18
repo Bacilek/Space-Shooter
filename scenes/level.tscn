@@ -24,7 +24,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 "
 
@@ -82,4 +82,7 @@ script = SubResource("GDScript_mx8sn")
 [node name="Meteor" parent="Meteors" instance=ExtResource("3_w8frs")]
 position = Vector2(532, 132)
 
+[node name="Lasers" type="Node2D" parent="."]
+
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
