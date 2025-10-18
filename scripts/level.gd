@@ -25,7 +25,6 @@ func _ready():
 		# animation speed
 		star.speed_scale = rng.randf_range(0.6, 1.4)
 
-
 func _on_meteor_timer_timeout() -> void:
 	# 2. create instance of the loaded scene 
 	var meteor = meteor_scene.instantiate()
@@ -42,7 +41,8 @@ func _on_meteor_collision():
 	get_tree().call_group("ui", "set_health", health)
 	if health <= 0:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-
+	
+	$Player.play_collision_sound()
 
 func _on_player_laser(_position) -> void:
 	var laser = laser_scene.instantiate()

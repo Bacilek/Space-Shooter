@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ind1j3ex1w3g"
+path="res://.godot/imported/Stellar Clash - 8-bit Space Shooter.ogg-95bd428d4dc143825fbd1aded4aeffec.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Stellar Clash - 8-bit Space Shooter.ogg"
+dest_files=["res://.godot/imported/Stellar Clash - 8-bit Space Shooter.ogg-95bd428d4dc143825fbd1aded4aeffec.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

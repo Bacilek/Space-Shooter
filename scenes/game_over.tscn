@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx13i38eaf4bv"]
+[gd_scene load_steps=6 format=3 uid="uid://bx13i38eaf4bv"]
 
 [ext_resource type="Script" uid="uid://b1o4o1ds2iyf1" path="res://scripts/game_over.gd" id="1_racf3"]
 [ext_resource type="FontFile" uid="uid://b3putnmyk0bug" path="res://assets/audio/kenvector_future_thin.ttf" id="1_xeevv"]
 [ext_resource type="PackedScene" uid="uid://cbyp1xwa5d3e1" path="res://scenes/level.tscn" id="3_tbwuq"]
+[ext_resource type="AudioStream" uid="uid://dqsg3hjliiu2e" path="res://assets/audio/sfx_lose.ogg" id="4_racf3"]
 
 [sub_resource type="GDScript" id="GDScript_tbwuq"]
 
@@ -71,3 +72,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xeevv")
 theme_override_font_sizes/font_size = 20
 text = "PRESS SPACE TO PLAY AGAIN"
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_racf3")

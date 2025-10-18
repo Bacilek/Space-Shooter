@@ -4,8 +4,8 @@ extends Control
 @export var level_scene: PackedScene
 
 func _ready():
+	$GameOverSound.play()
 	$CenterContainer/VBoxContainer/YourScore.text += str(Global.score)
-
 
 func _input(event):
 	if event.is_action_pressed("shoot"):

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://wps0hpecyxnr"]
+[gd_scene load_steps=6 format=3 uid="uid://wps0hpecyxnr"]
 
 [ext_resource type="Texture2D" uid="uid://duja5nm6h0uqc" path="res://assets/PNG/Ships/playerShip1_blue.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://d07o7ps7g7gpg" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="AudioStream" uid="uid://cmp33658h5nlo" path="res://assets/audio/sfx_laser1.ogg" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://delisiwcanvkc" path="res://assets/audio/sfx_laser2.ogg" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://ci4f0ihmfluqn" path="res://assets/audio/sfx_shieldDown.ogg" id="5_qlg0r"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
@@ -20,5 +23,16 @@ gizmo_extents = 27.5
 [node name="LaserTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="LaserSounds" type="Node2D" parent="."]
+
+[node name="LaserSound1" type="AudioStreamPlayer2D" parent="LaserSounds"]
+stream = ExtResource("3_qhqgy")
+
+[node name="LaserSound2" type="AudioStreamPlayer2D" parent="LaserSounds"]
+stream = ExtResource("4_dqkch")
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qlg0r")
 
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]

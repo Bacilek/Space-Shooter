@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://wps0hpecyxnr" path="res://scenes/player.tscn" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://dq113t0j3jdj3" path="res://scripts/level.gd" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://cpy4nssexxkun" path="res://assets/backgrounds/darkPurple.png" id="1_w7c3h"]
-[ext_resource type="PackedScene" uid="uid://cyqqgordmh7pa" path="res://scenes/meteor.tscn" id="3_w8frs"]
 [ext_resource type="Texture2D" uid="uid://b1euobalp3u3n" path="res://assets/PNG/Effects/star1.png" id="5_klq6b"]
 [ext_resource type="Texture2D" uid="uid://dih0iobp4xbgl" path="res://assets/PNG/Effects/star2.png" id="6_b121j"]
 [ext_resource type="Texture2D" uid="uid://dh1xewsiivauk" path="res://assets/PNG/Effects/star3.png" id="7_8c41q"]
+[ext_resource type="AudioStream" uid="uid://ind1j3ex1w3g" path="res://assets/audio/Stellar Clash - 8-bit Space Shooter.ogg" id="8_b121j"]
 [ext_resource type="PackedScene" uid="uid://dn1vdyt00eyk8" path="res://scenes/ui.tscn" id="9_8c41q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
@@ -102,9 +102,6 @@ script = SubResource("GDScript_mx8sn")
 
 [node name="Meteors" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
-
-[node name="Meteor" parent="Meteors" instance=ExtResource("3_w8frs")]
-position = Vector2(532, 132)
 
 [node name="Lasers" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -208,6 +205,10 @@ autoplay = "default"
 frame_progress = 0.77468914
 
 [node name="UI" parent="." instance=ExtResource("9_8c41q")]
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_b121j")
+autoplay = true
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
