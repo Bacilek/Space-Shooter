@@ -71,7 +71,7 @@ script = SubResource("GDScript_tbwuq")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xeevv")
 theme_override_font_sizes/font_size = 20
-text = "PRESS SPACE TO PLAY AGAIN"
+text = "PRESS 'R' TO PLAY AGAIN"
 
 [node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_racf3")

@@ -8,5 +8,5 @@ func _ready():
 	$CenterContainer/VBoxContainer/YourScore.text += str(Global.score)
 
 func _input(event):
-	if event.is_action_pressed("shoot"):
+	if event.is_action_pressed("restart"):
 		get_tree().change_scene_to_packed(level_scene)
